@@ -1,0 +1,998 @@
+/* =============================================
+   ADMIN AGENDADORES - CSS (PREMIUM DESIGN)
+   ============================================= */
+
+/* Section dentro de settings */
+#adminAgendadoresSection {
+    display: none; /* Começa hidden, JS mostra se for admin */
+}
+
+/* ===== PREMIUM SECTION HEADER ===== */
+.admin-section-premium {
+    background: linear-gradient(145deg, rgba(0, 255, 136, 0.04), rgba(0, 204, 106, 0.02));
+    border: 1px solid rgba(0, 255, 136, 0.12);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-section-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff88, transparent);
+}
+
+.admin-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.admin-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.admin-section-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 204, 106, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: #00ff88;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.admin-section-title h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+}
+
+.admin-section-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-secondary, rgba(255,255,255,0.6));
+    margin-top: 0.15rem;
+}
+
+/* Botão Novo Profissional */
+.btn-add-professional {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(135deg, #00ff88, #00cc6a);
+    color: #0a0a0a;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25);
+}
+
+.btn-add-professional:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+}
+
+.btn-add-professional:active {
+    transform: translateY(0);
+}
+
+/* ===== GRID DE CARDS ===== */
+.admin-agendadores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+/* ===== CARD DO AGENDADOR ===== */
+.admin-agendador-card {
+    background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(31, 31, 31, 0.9));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-agendador-card:hover {
+    background: linear-gradient(145deg, rgba(36, 36, 36, 0.95), rgba(40, 40, 40, 0.95));
+    border-color: rgba(0, 255, 136, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(0, 255, 136, 0.08);
+}
+
+.admin-agendador-card.is-admin {
+    background: linear-gradient(145deg, rgba(251, 191, 36, 0.06), rgba(245, 158, 11, 0.03));
+    border-color: rgba(251, 191, 36, 0.15);
+}
+
+.admin-agendador-card.is-admin:hover {
+    border-color: rgba(251, 191, 36, 0.35);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(251, 191, 36, 0.1);
+}
+
+.admin-agendador-card.inactive {
+    opacity: 0.55;
+}
+
+/* Card Header */
+.agendador-card-header {
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.agendador-avatar-lg {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 204, 106, 0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #00ff88;
+    text-transform: uppercase;
+    border: 2px solid rgba(0, 255, 136, 0.25);
+    transition: all 0.3s ease;
+}
+
+.admin-agendador-card:hover .agendador-avatar-lg {
+    transform: scale(1.05);
+    border-color: rgba(0, 255, 136, 0.45);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.agendador-avatar-lg.admin {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(245, 158, 11, 0.2));
+    color: #fcd34d;
+    border-color: rgba(251, 191, 36, 0.4);
+    font-size: 1.35rem;
+}
+
+.admin-agendador-card:hover .agendador-avatar-lg.admin {
+    border-color: rgba(251, 191, 36, 0.6);
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.25);
+}
+
+/* Badges */
+.agendador-badges {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.agendador-badge {
+    padding: 0.2rem 0.45rem;
+    border-radius: 0.35rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.agendador-badge.admin {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.35);
+}
+
+.agendador-badge.admin i {
+    font-size: 0.6rem;
+}
+
+.agendador-badge.blocked {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.agendador-badge.inactive {
+    background: rgba(156, 163, 175, 0.2);
+    color: #d1d5db;
+    border: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+/* Card Body */
+.agendador-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin-bottom: 0.85rem;
+}
+
+.agendador-card-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary, #fff);
+    line-height: 1.2;
+}
+
+.agendador-card-role {
+    font-size: 0.75rem;
+    color: var(--text-secondary, rgba(255,255,255,0.55));
+}
+
+/* Card Actions */
+.agendador-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.btn-card-action {
+    width: 36px;
+    height: 36px;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    color: var(--text-secondary, rgba(255,255,255,0.6));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+}
+
+.btn-card-action.edit:hover {
+    background: rgba(0, 255, 136, 0.12);
+    border-color: rgba(0, 255, 136, 0.3);
+    color: #00ff88;
+}
+
+.btn-card-action.delete:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.35);
+    color: #f87171;
+}
+
+/* ===== EMPTY STATE ===== */
+.admin-agendadores-empty {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    color: var(--text-secondary);
+}
+
+.admin-agendadores-empty .empty-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    background: rgba(0, 255, 136, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: rgba(0, 255, 136, 0.4);
+}
+
+.admin-agendadores-empty p {
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+}
+
+.btn-primary-gradient {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #00ff88, #00cc6a);
+    color: #0a0a0a;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.25);
+}
+
+.btn-primary-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+}
+
+/* ===== MODAL AGENDADOR ===== */
+
+#agendadorModal.modal-overlay,
+#confirmDeleteAgendadorModal.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 1rem;
+}
+
+#agendadorModal.modal-overlay.active,
+#confirmDeleteAgendadorModal.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#agendadorModal .modal-content {
+    background: var(--bg-card, #1a1b26);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: modalSlideIn 0.3s ease;
+}
+
+#agendadorModal .modal-content.modal-lg {
+    max-width: 600px;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#agendadorModal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+#agendadorModal .modal-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+}
+
+#agendadorModal .modal-title i {
+    color: var(--color-accent, #6366f1);
+}
+
+#agendadorModal .btn-close {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.6rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#agendadorModal .btn-close:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+#agendadorModal .modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+#agendadorModal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.15);
+}
+
+/* Form Groups */
+#agendadorModal .form-group {
+    margin-bottom: 1rem;
+}
+
+#agendadorModal .form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+#agendadorModal .form-input {
+    width: 100%;
+    padding: 0.6rem 0.85rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+#agendadorModal .form-input:focus {
+    outline: none;
+    border-color: var(--color-accent, #6366f1);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+#agendadorModal .form-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Password input wrapper */
+.input-password-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-password-wrap .form-input {
+    padding-right: 3rem;
+}
+
+.btn-toggle-password {
+    position: absolute;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    padding: 0.4rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-toggle-password:hover {
+    color: var(--text-primary);
+}
+
+/* Form Section Title */
+#agendadorModal .form-section-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-accent, #6366f1);
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* Form Row */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Checkbox Label */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    padding: 0.5rem 0;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-accent, #6366f1);
+    cursor: pointer;
+}
+
+/* Permissions Grid */
+.permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+.permission-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.permission-item:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+.permission-item.active {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.3);
+    color: var(--text-primary);
+}
+
+.permission-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-accent, #6366f1);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.permission-item i {
+    font-size: 0.85rem;
+    color: var(--text-muted, rgba(255,255,255,0.4));
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.permission-item.active i {
+    color: var(--color-accent, #6366f1);
+}
+
+/* Buttons */
+#agendadorModal .btn-primary,
+#agendadorModal .btn-secondary {
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+#agendadorModal .btn-primary {
+    background: linear-gradient(135deg, var(--color-accent, #6366f1), #8b5cf6);
+    border: none;
+    color: #fff;
+}
+
+#agendadorModal .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+#agendadorModal .btn-secondary {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-secondary);
+}
+
+#agendadorModal .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-primary);
+}
+
+/* ===== CONFIRM DELETE MODAL ===== */
+
+#confirmDeleteAgendadorModal .modal-content.modal-sm {
+    max-width: 360px;
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.modal-confirm-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+}
+
+.modal-confirm-icon.danger-icon {
+    background: rgba(239, 68, 68, 0.15);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+}
+
+.modal-confirm-title {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.modal-confirm-desc {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.modal-confirm-warning {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.modal-confirm-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.modal-confirm-buttons .btn-secondary {
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-confirm-buttons .btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-primary);
+}
+
+.modal-confirm-buttons .btn-danger {
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.modal-confirm-buttons .btn-danger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+    .permissions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    #agendadorModal .modal-content {
+        max-height: 95vh;
+    }
+    
+    #agendadorModal .modal-body {
+        padding: 1rem;
+    }
+}
+
+/* ===== CUSTOM SELECT ===== */
+
+.custom-select-wrap {
+    position: relative;
+}
+
+.custom-select-wrap .form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.custom-select-wrap .select-arrow {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    pointer-events: none;
+    transition: transform 0.2s ease;
+}
+
+.custom-select-wrap .form-select:focus + .select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+    color: var(--color-accent, #6366f1);
+}
+
+.custom-select-wrap .form-select option {
+    background: var(--bg-card, #1a1b26);
+    color: var(--text-primary);
+    padding: 0.75rem;
+}
+
+.form-hint {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted, rgba(255,255,255,0.4));
+    margin-top: 0.35rem;
+}
+
+/* ===== FORM SECTION TITLE WITH ICON ===== */
+
+#agendadorModal .form-section-title i {
+    margin-right: 0.4rem;
+    font-size: 0.7rem;
+}
+
+/* Form label with icon */
+#agendadorModal .form-group label i {
+    margin-right: 0.3rem;
+    font-size: 0.75rem;
+    color: var(--text-muted, rgba(255,255,255,0.4));
+}
+
+/* ===== TOGGLE BLOCK ROW ===== */
+
+.toggle-block-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.toggle-block-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.toggle-block-info > i {
+    font-size: 1.25rem;
+    color: rgba(239, 68, 68, 0.7);
+}
+
+.toggle-block-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.toggle-block-hint {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 0.15rem;
+}
+
+/* ===== TOGGLE SWITCH DANGER ===== */
+
+.toggle-switch-danger {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.toggle-switch-danger input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider-danger {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    border-radius: 28px;
+}
+
+.toggle-slider-danger:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+}
+
+.toggle-switch-danger input:checked + .toggle-slider-danger {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border-color: #ef4444;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.toggle-switch-danger input:checked + .toggle-slider-danger:before {
+    transform: translateX(24px);
+    background: #fff;
+}
+
+.toggle-switch-danger input:focus + .toggle-slider-danger {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* ===== LIGHT MODE ADJUSTMENTS ===== */
+body.light-mode .admin-section-premium {
+    background: linear-gradient(145deg, rgba(0, 184, 92, 0.04), rgba(0, 154, 77, 0.02));
+    border-color: rgba(0, 184, 92, 0.15);
+}
+
+body.light-mode .admin-section-premium::before {
+    background: linear-gradient(90deg, transparent, #00b85c, transparent);
+}
+
+body.light-mode .admin-section-icon {
+    background: linear-gradient(135deg, rgba(0, 184, 92, 0.12), rgba(0, 154, 77, 0.08));
+    color: #00b85c;
+    border-color: rgba(0, 184, 92, 0.2);
+}
+
+body.light-mode .admin-agendador-card {
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .admin-agendador-card:hover {
+    background: linear-gradient(145deg, #ffffff, #f5f6f7);
+    border-color: rgba(0, 184, 92, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 0 15px rgba(0, 184, 92, 0.06);
+}
+
+body.light-mode .admin-agendador-card.is-admin {
+    background: linear-gradient(145deg, rgba(251, 191, 36, 0.06), rgba(245, 158, 11, 0.03));
+    border-color: rgba(251, 191, 36, 0.2);
+}
+
+body.light-mode .agendador-avatar-lg {
+    background: linear-gradient(135deg, rgba(0, 184, 92, 0.15), rgba(0, 154, 77, 0.1));
+    color: #00b85c;
+    border-color: rgba(0, 184, 92, 0.25);
+}
+
+body.light-mode .agendador-avatar-lg.admin {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.25), rgba(245, 158, 11, 0.15));
+    color: #b45309;
+    border-color: rgba(251, 191, 36, 0.35);
+}
+
+body.light-mode .btn-card-action {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #64748b;
+}
+
+body.light-mode .btn-card-action.edit:hover {
+    background: rgba(0, 184, 92, 0.08);
+    border-color: rgba(0, 184, 92, 0.25);
+    color: #00b85c;
+}
+
+body.light-mode .btn-card-action.delete:hover {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.25);
+    color: #dc2626;
+}
+
+body.light-mode .agendador-badge.blocked {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+}
+
+body.light-mode .agendador-badge.inactive {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+body.light-mode .btn-add-professional {
+    background: linear-gradient(135deg, #00b85c, #009a4d);
+    box-shadow: 0 4px 15px rgba(0, 184, 92, 0.2);
+}
+
+body.light-mode .btn-add-professional:hover {
+    box-shadow: 0 6px 20px rgba(0, 184, 92, 0.35);
+}
+
+body.light-mode .btn-primary-gradient {
+    background: linear-gradient(135deg, #00b85c, #009a4d);
+    box-shadow: 0 4px 15px rgba(0, 184, 92, 0.2);
+}
+
+body.light-mode .btn-primary-gradient:hover {
+    box-shadow: 0 6px 20px rgba(0, 184, 92, 0.35);
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 480px) {
+    .admin-section-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .btn-add-professional {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .admin-agendadores-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .agendador-avatar-lg {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+    
+    .agendador-card-name {
+        font-size: 0.85rem;
+    }
+    
+    .btn-card-action {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+}

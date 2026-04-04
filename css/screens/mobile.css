@@ -1,0 +1,2271 @@
+/* =============================================
+   NEXUS PRO - MOBILE 
+   Versão completa para celular
+   ============================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* =========================================
+       RESET GLOBAL
+       ========================================= */
+    * {
+        box-sizing: border-box !important;
+    }
+
+    html {
+        overflow-x: hidden !important;
+    }
+
+    body {
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+    }
+
+    /* =========================================
+       CONTAINER PRINCIPAL
+       ========================================= */
+    .app-container {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        width: 100% !important;
+    }
+
+    /* =========================================
+       BARRA DE NAVEGAÇÃO INFERIOR
+       ========================================= */
+    .sidebar {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        width: 100% !important;
+        height: 70px !important;
+        z-index: 9999 !important;
+        
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+        
+        background: #0d0d0d !important;
+        border-top: 1px solid rgba(255,255,255,0.1) !important;
+        border-right: none !important;
+        
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Esconder elementos da sidebar desktop */
+    .sidebar-header,
+    .sidebar-calendar,
+    .sidebar-footer,
+    .sidebar .logo,
+    .sidebar .user-info {
+        display: none !important;
+    }
+
+    /* Container da navegação */
+    .sidebar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 0 !important;
+        justify-content: space-evenly !important;
+        align-items: stretch !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+    }
+
+    /* Botões de navegação */
+    .sidebar-nav .nav-item,
+    .nav-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        
+        flex: 1 1 0 !important;
+        min-width: 60px !important;
+        max-width: 90px !important;
+        height: 100% !important;
+        
+        padding: 8px 4px !important;
+        margin: 0 !important;
+        gap: 4px !important;
+        
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        
+        color: rgba(255,255,255,0.6) !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+    }
+
+    .nav-item i {
+        font-size: 20px !important;
+        width: auto !important;
+        height: auto !important;
+        line-height: 1 !important;
+    }
+
+    .nav-item span {
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 100% !important;
+        text-align: center !important;
+    }
+
+    .nav-item.active {
+        color: #00ff88 !important;
+        background: rgba(0,255,136,0.1) !important;
+    }
+
+    .nav-item.active i,
+    .nav-item.active span {
+        color: #00ff88 !important;
+    }
+
+    /* Esconder backup no mobile */
+    .nav-item[data-screen="screen-backup"] {
+        display: none !important;
+    }
+
+    /* =========================================
+       CONTEÚDO PRINCIPAL - CRÍTICO!
+       ========================================= */
+    .main-content {
+        width: 100% !important;
+        min-height: calc(100vh - 70px) !important;
+        min-height: calc(100dvh - 70px) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        padding-bottom: 80px !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        position: relative !important;
+    }
+
+    /* ==========================================
+       CRÍTICO: ESCONDER TODAS AS SCREENS
+       ========================================== */
+    
+    /* Esconder TODAS as screens explicitamente */
+    .main-content > .screen,
+    .main-content > #screen-home,
+    .main-content > #screen-calendar,
+    .main-content > #screen-clients,
+    .main-content > #screen-services,
+    .main-content > #screen-products,
+    .main-content > #screen-cashier,
+    .main-content > #screen-stats,
+    .main-content > #screen-settings,
+    .main-content > #screen-backup,
+    .main-content > #screen-script-builder {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
+
+    /* APENAS a screen ATIVA aparece - seletores ultra específicos */
+    .main-content > .screen.active,
+    .main-content > #screen-home.active,
+    .main-content > #screen-calendar.active,
+    .main-content > #screen-clients.active,
+    .main-content > #screen-services.active,
+    .main-content > #screen-products.active,
+    .main-content > #screen-cashier.active,
+    .main-content > #screen-stats.active,
+    .main-content > #screen-settings.active,
+    .main-content > #screen-backup.active,
+    .main-content > #screen-script-builder.active {
+        display: flex !important;
+        flex-direction: column !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        overflow: visible !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        min-height: calc(100vh - 70px) !important;
+        min-height: calc(100dvh - 70px) !important;
+        padding-bottom: 100px !important;
+    }
+
+    /* =========================================
+       TELA INICIAL (HOME) - REDESIGN MOBILE
+       ========================================= */
+    #screen-home.active {
+        padding: 0 !important;
+        background: #0a0a0a !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    #screen-home.active .home-grid-premium {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    #screen-home.active .home-left-col,
+    #screen-home.active .home-center-col,
+    #screen-home.active .home-right-col {
+        width: 100% !important;
+        display: contents !important;
+    }
+
+    /* CRÍTICO: Todos os widgets devem ter position relative para evitar sobreposição */
+    #screen-home.active .widget-premium,
+    #screen-home.active .clock-widget-premium,
+    #screen-home.active .schedule-widget-premium,
+    #screen-home.active .quick-actions-widget,
+    #screen-home.active .week-summary-widget,
+    #screen-home.active .week-info-widget {
+        position: relative !important;
+        z-index: auto !important;
+        transform: none !important;
+        float: none !important;
+    }
+
+    /* ==========================================
+       MOBILE SIMPLIFICADO: SÓ AGENDAMENTOS + IA FAB
+       ========================================== */
+    /* Esconder todos os widgets EXCETO agendamentos */
+    #screen-home.active .clock-widget-premium,
+    #screen-home.active .widget-premium.clock-widget-premium,
+    #screen-home.active .quick-actions-widget,
+    #screen-home.active .widget-premium.quick-actions-widget,
+    #screen-home.active .week-summary-widget,
+    #screen-home.active .widget-premium.week-summary-widget,
+    #screen-home.active .week-info-widget,
+    #screen-home.active .widget-premium.week-info-widget,
+    #screen-home.active .birthdays-widget {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Agendamentos ocupa tela toda */
+    #screen-home.active .schedule-widget-premium,
+    #screen-home.active .widget-premium.schedule-widget-premium {
+        display: block !important;
+        width: 100% !important;
+        flex: 1 !important;
+        order: 1 !important;
+    }
+
+    /* FAB de IA sempre visível */
+    .ai-chat-fab {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 90px !important;
+        right: 20px !important;
+        z-index: 9998 !important;
+    }
+
+    /* ==========================================
+       WIDGET RELÓGIO - ESCONDIDO NO MOBILE
+       ========================================== */
+    #screen-home.active .clock-widget-premium,
+    #screen-home.active .widget-premium.clock-widget-premium {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px 16px 16px !important;
+        border-radius: 0 !important;
+        background: linear-gradient(180deg, #151515 0%, #0a0a0a 100%) !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    }
+
+    #screen-home.active .clock-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    #screen-home.active .clock-main {
+        text-align: center !important;
+    }
+
+    #screen-home.active .clock-time-wrapper {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    #screen-home.active .clock-time {
+        font-size: 56px !important;
+        font-weight: 200 !important;
+        letter-spacing: -2px !important;
+        color: white !important;
+        line-height: 1 !important;
+    }
+
+    #screen-home.active .clock-date {
+        font-size: 13px !important;
+        color: rgba(255,255,255,0.5) !important;
+        margin-top: 2px !important;
+        text-transform: capitalize !important;
+    }
+
+    #screen-home.active .clock-divider {
+        display: none !important;
+    }
+
+    /* Stats rápidos - menores */
+    #screen-home.active .quick-stats-premium {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        width: 100% !important;
+        justify-content: center !important;
+        flex-wrap: nowrap !important;
+        margin-top: 4px !important;
+    }
+
+    #screen-home.active .quick-stat-item {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 10px 12px !important;
+        background: rgba(255,255,255,0.05) !important;
+        border-radius: 12px !important;
+        min-width: 0 !important;
+        flex: 1 !important;
+        max-width: 110px !important;
+    }
+
+    #screen-home.active .stat-icon-circle {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        border-radius: 8px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 13px !important;
+    }
+
+    #screen-home.active .stat-icon-circle.today {
+        background: rgba(0,255,136,0.15) !important;
+        color: #00ff88 !important;
+    }
+
+    #screen-home.active .stat-icon-circle.tomorrow {
+        background: rgba(59,130,246,0.15) !important;
+        color: #3b82f6 !important;
+    }
+
+    #screen-home.active .stat-icon-circle.week {
+        background: rgba(168,85,247,0.15) !important;
+        color: #a855f7 !important;
+    }
+
+    #screen-home.active .stat-info {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0 !important;
+    }
+
+    #screen-home.active .stat-number {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: white !important;
+        line-height: 1.1 !important;
+    }
+
+    #screen-home.active .stat-text {
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        color: rgba(255,255,255,0.4) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.3px !important;
+    }
+
+    /* ==========================================
+       WIDGET AGENDAMENTOS - TELA PRINCIPAL MOBILE
+       ========================================== */
+    #screen-home.active .schedule-widget-premium,
+    #screen-home.active .widget-premium.schedule-widget-premium {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 24px 16px 100px !important;
+        border-radius: 0 !important;
+        background: linear-gradient(180deg, #111 0%, #0a0a0a 100%) !important;
+        border: none !important;
+        min-height: calc(100vh - 70px) !important;
+        min-height: calc(100dvh - 70px) !important;
+    }
+
+    #screen-home.active .schedule-widget-premium .widget-header-premium {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 24px !important;
+        padding: 0 !important;
+    }
+
+    #screen-home.active .schedule-widget-premium .widget-title-group {
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+    }
+
+    #screen-home.active .schedule-widget-premium .widget-icon {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 14px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: linear-gradient(135deg, rgba(0,255,136,0.2) 0%, rgba(0,200,100,0.1) 100%) !important;
+        color: #00ff88 !important;
+        font-size: 20px !important;
+    }
+
+    #screen-home.active .schedule-widget-premium .widget-title-text h2 {
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        color: white !important;
+        margin: 0 !important;
+    }
+
+    #screen-home.active .schedule-widget-premium .widget-subtitle {
+        font-size: 13px !important;
+        color: rgba(255,255,255,0.5) !important;
+        margin-top: 2px !important;
+    }
+
+    #screen-home.active .schedule-widget-premium .btn-link-premium {
+        padding: 12px 16px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        color: #00ff88 !important;
+        background: rgba(0,255,136,0.1) !important;
+        border: 1px solid rgba(0,255,136,0.2) !important;
+        border-radius: 12px !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    /* Timeline de agendamentos - FULL HEIGHT */
+    #screen-home.active .schedule-timeline-premium {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    /* Slots de agendamento - Cards maiores */
+    #screen-home.active .time-slot.occupied {
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+        padding: 18px !important;
+        background: rgba(255,255,255,0.04) !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+        transition: all 0.2s ease !important;
+    }
+
+    #screen-home.active .time-slot.occupied:active {
+        background: rgba(255,255,255,0.08) !important;
+        transform: scale(0.98) !important;
+    }
+
+    #screen-home.active .time-slot.occupied.past {
+        opacity: 0.5 !important;
+    }
+
+    #screen-home.active .time-slot .slot-time {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 64px !important;
+        padding: 14px 10px !important;
+        background: linear-gradient(135deg, rgba(0,255,136,0.15) 0%, rgba(0,255,136,0.08) 100%) !important;
+        border-radius: 12px !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #00ff88 !important;
+    }
+
+    #screen-home.active .time-slot .slot-client-info {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        min-width: 0 !important;
+    }
+
+    #screen-home.active .time-slot .slot-client {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+        color: white !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: block !important;
+    }
+
+    #screen-home.active .time-slot .slot-service {
+        font-size: 14px !important;
+        color: rgba(255,255,255,0.5) !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: block !important;
+    }
+
+    /* Fallback para classes premium (usadas em alguns lugares) */
+    #screen-home.active .schedule-slot-premium {
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+        padding: 18px !important;
+        background: rgba(255,255,255,0.04) !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+    }
+
+    #screen-home.active .slot-time-badge {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 64px !important;
+        padding: 14px 10px !important;
+        background: linear-gradient(135deg, rgba(0,255,136,0.15) 0%, rgba(0,255,136,0.08) 100%) !important;
+        border-radius: 12px !important;
+    }
+
+    #screen-home.active .slot-time-badge .time {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #00ff88 !important;
+        line-height: 1 !important;
+    }
+
+    #screen-home.active .slot-time-badge .period {
+        font-size: 10px !important;
+        color: rgba(0,255,136,0.7) !important;
+        text-transform: uppercase !important;
+        margin-top: 3px !important;
+    }
+
+    #screen-home.active .slot-details {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        min-width: 0 !important;
+    }
+
+    #screen-home.active .slot-client-name {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+        color: white !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    #screen-home.active .slot-service-name {
+        font-size: 14px !important;
+        color: rgba(255,255,255,0.5) !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    #screen-home.active .slot-professional {
+        font-size: 12px !important;
+        color: rgba(255,255,255,0.4) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        margin-top: 4px !important;
+    }
+
+    /* Empty State para agendamentos - TELA CHEIA */
+    #screen-home.active .empty-state-premium {
+        text-align: center !important;
+        padding: 80px 24px !important;
+        background: rgba(255,255,255,0.02) !important;
+        border-radius: 20px !important;
+        margin-top: 40px !important;
+    }
+
+    #screen-home.active .empty-state-premium .empty-icon {
+        margin-bottom: 20px !important;
+    }
+
+    #screen-home.active .empty-state-premium .empty-icon i {
+        font-size: 64px !important;
+        color: rgba(255,255,255,0.15) !important;
+    }
+
+    #screen-home.active .empty-state-premium .empty-title {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: rgba(255,255,255,0.7) !important;
+        margin-bottom: 8px !important;
+    }
+
+    #screen-home.active .empty-state-premium .empty-subtitle {
+        font-size: 14px !important;
+        color: rgba(255,255,255,0.4) !important;
+    }
+
+    /* Skeleton Loading - Maior */
+    #screen-home.active .skeleton-timeline {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    #screen-home.active .skeleton-slot {
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+        padding: 18px !important;
+        background: rgba(255,255,255,0.03) !important;
+        border-radius: 16px !important;
+        animation: pulse 1.5s ease-in-out infinite !important;
+    }
+
+    #screen-home.active .skeleton-line {
+        background: rgba(255,255,255,0.08) !important;
+        border-radius: 6px !important;
+    }
+
+    #screen-home.active .skeleton-time-s {
+        width: 64px !important;
+        height: 48px !important;
+        border-radius: 12px !important;
+    }
+
+    #screen-home.active .skeleton-slot-info {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    #screen-home.active .skeleton-name-s {
+        width: 70% !important;
+        height: 16px !important;
+    }
+
+    #screen-home.active .skeleton-service-s {
+        width: 50% !important;
+        height: 14px !important;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+
+    /* Empty state */
+    #screen-home.active .schedule-empty,
+    #screen-home.active .empty-schedule-premium {
+        text-align: center !important;
+        padding: 40px 16px !important;
+        background: rgba(255,255,255,0.02) !important;
+        border-radius: 16px !important;
+    }
+
+    #screen-home.active .schedule-empty i,
+    #screen-home.active .empty-schedule-premium i {
+        font-size: 48px !important;
+        color: rgba(255,255,255,0.1) !important;
+        margin-bottom: 16px !important;
+    }
+
+    #screen-home.active .schedule-empty p,
+    #screen-home.active .empty-schedule-premium p {
+        font-size: 14px !important;
+        color: rgba(255,255,255,0.4) !important;
+    }
+
+    /* ==========================================
+       WIDGET AÇÕES RÁPIDAS - COMPACTO
+       ========================================== */
+    #screen-home.active .quick-actions-widget,
+    #screen-home.active .widget-premium.quick-actions-widget {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 16px !important;
+        border-radius: 0 !important;
+        background: #0d0d0d !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    }
+
+    #screen-home.active .quick-actions-widget .widget-header-premium {
+        margin-bottom: 12px !important;
+    }
+
+    #screen-home.active .quick-actions-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    #screen-home.active .quick-action-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        padding: 12px 6px !important;
+        background: rgba(255,255,255,0.03) !important;
+        border: 1px solid rgba(255,255,255,0.06) !important;
+        border-radius: 12px !important;
+        color: white !important;
+        cursor: pointer !important;
+    }
+
+    #screen-home.active .quick-action-btn i {
+        font-size: 20px !important;
+        color: #00ff88 !important;
+    }
+
+    #screen-home.active .quick-action-btn span {
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        color: rgba(255,255,255,0.6) !important;
+    }
+
+    /* ==========================================
+       WIDGET RESUMO DA SEMANA - GRÁFICO MAIOR
+       ========================================== */
+    #screen-home.active .week-summary-widget,
+    #screen-home.active .widget-premium.week-summary-widget {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 20px 16px !important;
+        border-radius: 0 !important;
+        background: #0d0d0d !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+        position: relative !important;
+    }
+
+    #screen-home.active .week-summary-widget .widget-header-premium {
+        margin-bottom: 16px !important;
+    }
+
+    /* Container principal do gráfico */
+    #screen-home.active .week-summary-content,
+    #screen-home.active .week-chart-container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: stretch !important;
+        height: 200px !important;
+        min-height: 200px !important;
+        padding: 0 !important;
+        background: rgba(255,255,255,0.02) !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+    }
+
+    /* Eixo Y - labels (0, 10, 20, 30) */
+    #screen-home.active .week-chart-axis {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        padding: 10px 8px 30px 4px !important;
+        min-width: 28px !important;
+    }
+
+    #screen-home.active .week-chart-axis .axis-label {
+        font-size: 10px !important;
+        font-weight: 500 !important;
+        color: rgba(255,255,255,0.3) !important;
+        text-align: right !important;
+    }
+
+    /* Container das barras */
+    #screen-home.active .week-chart {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-end !important;
+        justify-content: space-around !important;
+        gap: 4px !important;
+        padding: 10px 8px 0 !important;
+        border-left: 1px solid rgba(255,255,255,0.1) !important;
+    }
+
+    /* Coluna de cada dia */
+    #screen-home.active .week-bar-col {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: 100% !important;
+        max-width: 45px !important;
+    }
+
+    /* Wrapper da barra (ocupa espaço disponível) */
+    #screen-home.active .week-bar-wrapper {
+        flex: 1 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        position: relative !important;
+    }
+
+    /* A barra em si */
+    #screen-home.active .week-bar {
+        width: 24px !important;
+        min-height: 0 !important;
+        background: linear-gradient(180deg, #00ff88 0%, #00cc6a 100%) !important;
+        border-radius: 4px 4px 0 0 !important;
+        position: relative !important;
+        transition: height 0.3s ease !important;
+    }
+
+    #screen-home.active .week-bar.today {
+        background: linear-gradient(180deg, #00ff88 0%, #00aa55 100%) !important;
+        box-shadow: 0 0 12px rgba(0,255,136,0.4) !important;
+        width: 28px !important;
+    }
+
+    /* Valor acima da barra */
+    #screen-home.active .week-bar .bar-value {
+        position: absolute !important;
+        top: -18px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: #00ff88 !important;
+        white-space: nowrap !important;
+    }
+
+    /* Label do dia (Seg, Ter...) */
+    #screen-home.active .week-bar-label {
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        color: rgba(255,255,255,0.5) !important;
+        padding: 8px 0 6px !important;
+        text-align: center !important;
+    }
+
+    #screen-home.active .week-bar-label.today {
+        color: #00ff88 !important;
+        font-weight: 700 !important;
+    }
+
+    /* Fallback para classes antigas */
+    #screen-home.active .week-bar-item {
+        flex: 1 !important;
+        max-width: 50px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 6px !important;
+        height: 100% !important;
+        justify-content: flex-end !important;
+        position: relative !important;
+    }
+
+    #screen-home.active .week-bar-value {
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        color: #00ff88 !important;
+    }
+
+    /* ==========================================
+       WIDGET STATS DA SEMANA - COMPACTO
+       ========================================== */
+    #screen-home.active .week-info-widget,
+    #screen-home.active .widget-premium.week-info-widget {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 12px 16px 20px !important;
+        border-radius: 0 !important;
+        background: #0a0a0a !important;
+        border: none !important;
+    }
+
+    #screen-home.active .week-info-list {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    #screen-home.active .week-info-row {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 10px 6px !important;
+        background: rgba(255,255,255,0.03) !important;
+        border-radius: 10px !important;
+    }
+
+    #screen-home.active .week-info-label {
+        font-size: 9px !important;
+        color: rgba(255,255,255,0.4) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        margin-bottom: 4px !important;
+    }
+
+    #screen-home.active .week-info-label i {
+        font-size: 10px !important;
+        color: #00ff88 !important;
+    }
+
+    #screen-home.active .week-info-value {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: white !important;
+    }
+
+    /* Esconder aniversariantes no mobile */
+    #screen-home.active .birthdays-widget {
+        display: none !important;
+    }
+
+    /* Botão AI Chat */
+    #screen-home.active .ai-chat-fab {
+        position: fixed !important;
+        bottom: 90px !important;
+        right: 16px !important;
+        z-index: 1000 !important;
+    }
+
+    /* =========================================
+       TELA DE AGENDA (CALENDAR) - PREMIUM
+       ========================================= */
+    #screen-calendar.active {
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: linear-gradient(180deg, #0a0a0a 0%, #111 100%) !important;
+        min-height: calc(100vh - 70px) !important;
+        min-height: calc(100dvh - 70px) !important;
+        overflow-y: auto !important;
+        padding-bottom: 90px !important;
+    }
+
+    /* ===== HEADER DA DATA - PREMIUM ===== */
+    #screen-calendar.active .cal-big-header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 16px 16px 12px !important;
+        background: transparent !important;
+        border-bottom: none !important;
+    }
+
+    #screen-calendar.active .cal-big-date {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    #screen-calendar.active .cal-big-day {
+        font-size: 44px !important;
+        font-weight: 800 !important;
+        line-height: 1 !important;
+        background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+
+    #screen-calendar.active .cal-big-info {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2px !important;
+    }
+
+    #screen-calendar.active .cal-big-weekday {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: white !important;
+        letter-spacing: 1px !important;
+    }
+
+    #screen-calendar.active .cal-big-month {
+        font-size: 12px !important;
+        color: rgba(255,255,255,0.5) !important;
+        font-weight: 500 !important;
+    }
+
+    #screen-calendar.active .cal-status-badge {
+        padding: 8px 14px !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        border-radius: 20px !important;
+        background: rgba(0,255,136,0.15) !important;
+        border: 1px solid rgba(0,255,136,0.3) !important;
+        color: #00ff88 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+    }
+
+    #screen-calendar.active .cal-status-badge .status-dot {
+        width: 6px !important;
+        height: 6px !important;
+        background: #00ff88 !important;
+        border-radius: 50% !important;
+        animation: pulse-dot 2s ease-in-out infinite !important;
+    }
+
+    @keyframes pulse-dot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ===== MINI CALENDÁRIO - CARD PREMIUM ===== */
+    #screen-calendar.active .mobile-mini-calendar {
+        display: block !important;
+        margin: 0 16px 12px !important;
+        padding: 16px !important;
+        background: rgba(255,255,255,0.03) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+        min-height: auto !important;
+        overflow: visible !important;
+    }
+
+    #screen-calendar.active .mobile-mini-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 12px !important;
+    }
+
+    #screen-calendar.active .mobile-mini-month {
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        color: white !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    #screen-calendar.active .mini-nav-btn {
+        width: 32px !important;
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-radius: 10px !important;
+        color: white !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+    }
+
+    #screen-calendar.active .mini-nav-btn:active {
+        background: rgba(0,255,136,0.2) !important;
+        border-color: rgba(0,255,136,0.3) !important;
+        transform: scale(0.95) !important;
+    }
+
+    #screen-calendar.active .mobile-mini-weekdays {
+        display: grid !important;
+        grid-template-columns: repeat(7, 1fr) !important;
+        margin-bottom: 8px !important;
+        padding-bottom: 8px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+    }
+
+    #screen-calendar.active .mobile-mini-weekdays span {
+        text-align: center !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        color: rgba(255,255,255,0.4) !important;
+        padding: 4px 0 !important;
+    }
+
+    #screen-calendar.active .mobile-mini-days {
+        display: grid !important;
+        grid-template-columns: repeat(7, 1fr) !important;
+        gap: 4px !important;
+        min-height: 180px !important;
+        visibility: visible !important;
+    }
+
+    /* Dias do calendário (spans e buttons renderizados pelo JS) */
+    #screen-calendar.active .mobile-mini-days > span,
+    #screen-calendar.active .mobile-mini-days > button,
+    #screen-calendar.active .mobile-mini-days .mobile-mini-day {
+        width: 100% !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        aspect-ratio: unset !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        border: none !important;
+        background: transparent !important;
+        color: white !important;
+        cursor: pointer !important;
+        position: relative !important;
+        transition: all 0.15s ease !important;
+        visibility: visible !important;
+    }
+
+    #screen-calendar.active .mobile-mini-day:active,
+    #screen-calendar.active .mobile-mini-days > span:active,
+    #screen-calendar.active .mobile-mini-days > button:active {
+        transform: scale(0.9) !important;
+    }
+
+    #screen-calendar.active .mobile-mini-day.other-month,
+    #screen-calendar.active .mobile-mini-days > span.other-month,
+    #screen-calendar.active .mobile-mini-days > button.other-month {
+        color: rgba(255,255,255,0.2) !important;
+    }
+
+    #screen-calendar.active .mobile-mini-day.today,
+    #screen-calendar.active .mobile-mini-days > span.today,
+    #screen-calendar.active .mobile-mini-days > button.today {
+        background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%) !important;
+        color: #000 !important;
+        font-weight: 800 !important;
+        box-shadow: 0 2px 8px rgba(0,255,136,0.4) !important;
+    }
+
+    #screen-calendar.active .mobile-mini-day.selected:not(.today),
+    #screen-calendar.active .mobile-mini-days > span.selected:not(.today),
+    #screen-calendar.active .mobile-mini-days > button.selected:not(.today) {
+        background: rgba(0,255,136,0.15) !important;
+        border: 2px solid #00ff88 !important;
+        color: #00ff88 !important;
+    }
+
+    #screen-calendar.active .mobile-mini-day.has-appointments::after,
+    #screen-calendar.active .mobile-mini-days > span.has-appointments::after,
+    #screen-calendar.active .mobile-mini-days > button.has-appointments::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: 4px !important;
+        width: 5px !important;
+        height: 5px !important;
+        background: #00ff88 !important;
+        border-radius: 50% !important;
+    }
+
+    #screen-calendar.active .mobile-mini-day.today.has-appointments::after,
+    #screen-calendar.active .mobile-mini-days > span.today.has-appointments::after,
+    #screen-calendar.active .mobile-mini-days > button.today.has-appointments::after {
+        background: #000 !important;
+    }
+
+    /* ===== GRID DO CALENDÁRIO - CARD PREMIUM ===== */
+    #screen-calendar.active .calendar-layout-premium {
+        flex: 1 !important;
+        margin: 0 16px 16px !important;
+        background: rgba(255,255,255,0.03) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+        min-height: 50vh !important;
+    }
+
+    #screen-calendar.active .calendar-grid-wrapper {
+        flex: 0 1 auto !important;
+        overflow: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        min-height: auto !important;
+        max-height: calc(100vh - 180px) !important;
+    }
+
+    #screen-calendar.active .calendar-grid-premium {
+        min-width: 100% !important;
+        width: max-content !important;
+    }
+
+    /* Header row com profissionais */
+    #screen-calendar.active .calendar-header-row-premium {
+        display: flex !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 10 !important;
+        background: rgba(15,15,15,0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        border-bottom: 2px solid rgba(0,255,136,0.3) !important;
+    }
+
+    #screen-calendar.active .calendar-row-premium {
+        display: flex !important;
+    }
+
+    /* Células do calendário */
+    #screen-calendar.active .cal-cell {
+        min-width: 110px !important;
+        min-height: 56px !important;
+        padding: 10px 8px !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+        border-right: 1px solid rgba(255,255,255,0.04) !important;
+        font-size: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        cursor: pointer !important;
+        transition: background 0.15s ease !important;
+    }
+
+    #screen-calendar.active .cal-cell:active {
+        background: rgba(0,255,136,0.1) !important;
+    }
+
+    /* Header cells (profissionais) */
+    #screen-calendar.active .cal-cell.header {
+        min-height: 52px !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        background: transparent !important;
+        color: #00ff88 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        border-bottom: none !important;
+    }
+
+    /* Coluna de horários */
+    #screen-calendar.active .cal-cell.time-col {
+        min-width: 56px !important;
+        position: sticky !important;
+        left: 0 !important;
+        z-index: 5 !important;
+        background: rgba(10,10,10,0.98) !important;
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: rgba(255,255,255,0.5) !important;
+        border-right: 1px solid rgba(255,255,255,0.08) !important;
+    }
+
+    #screen-calendar.active .cal-cell.header.time-col {
+        z-index: 15 !important;
+        background: rgba(10,10,10,0.98) !important;
+        color: transparent !important;
+    }
+
+    /* Células ocupadas */
+    #screen-calendar.active .cal-cell.occupied {
+        background: rgba(0,255,136,0.08) !important;
+        border-left: 3px solid #00ff88 !important;
+        padding-left: 8px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+        gap: 2px !important;
+    }
+
+    #screen-calendar.active .cal-cell.occupied .client-name {
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        color: white !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 100% !important;
+    }
+
+    #screen-calendar.active .cal-cell.occupied .service-name {
+        font-size: 10px !important;
+        color: rgba(255,255,255,0.5) !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 100% !important;
+    }
+
+    /* Botão de adicionar nas células vazias */
+    #screen-calendar.active .cal-cell .add-btn,
+    #screen-calendar.active .cal-cell .cell-add-btn {
+        width: 28px !important;
+        height: 28px !important;
+        border-radius: 8px !important;
+        background: rgba(255,255,255,0.08) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        color: rgba(255,255,255,0.4) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 14px !important;
+        cursor: pointer !important;
+        transition: all 0.15s ease !important;
+        opacity: 0.5 !important;
+    }
+
+    #screen-calendar.active .cal-cell:hover .add-btn,
+    #screen-calendar.active .cal-cell:hover .cell-add-btn,
+    #screen-calendar.active .cal-cell:active .add-btn,
+    #screen-calendar.active .cal-cell:active .cell-add-btn {
+        opacity: 1 !important;
+        background: rgba(0,255,136,0.15) !important;
+        border-color: rgba(0,255,136,0.3) !important;
+        color: #00ff88 !important;
+    }
+
+    /* =========================================
+       TELA DE CLIENTES
+       ========================================= */
+    #screen-clients.active {
+        padding: 0 !important;
+    }
+
+    .clients-card-wrapper {
+        padding: 16px !important;
+    }
+
+    .clients-card-header {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .clients-card-title {
+        font-size: 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .clients-count {
+        font-size: 14px !important;
+        padding: 4px 10px !important;
+        background: #00ff88 !important;
+        color: #000 !important;
+        border-radius: 12px !important;
+    }
+
+    .clients-card-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .search-container {
+        width: 100% !important;
+        position: relative !important;
+    }
+
+    .search-container i {
+        position: absolute !important;
+        left: 14px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        color: rgba(255,255,255,0.4) !important;
+    }
+
+    .search-input {
+        width: 100% !important;
+        padding: 14px 14px 14px 44px !important;
+        font-size: 16px !important;
+        background: #1e1e1e !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-radius: 12px !important;
+        color: white !important;
+    }
+
+    .filters-bar {
+        display: flex !important;
+        gap: 8px !important;
+    }
+
+    .filter-btn {
+        flex: 1 !important;
+        padding: 12px 16px !important;
+        font-size: 13px !important;
+        background: #1e1e1e !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-radius: 10px !important;
+        color: rgba(255,255,255,0.7) !important;
+        cursor: pointer !important;
+        text-align: center !important;
+    }
+
+    .filter-btn.active {
+        background: rgba(0,255,136,0.15) !important;
+        border-color: #00ff88 !important;
+        color: #00ff88 !important;
+    }
+
+    #btnAddClient {
+        width: 100% !important;
+        padding: 14px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        background: #00ff88 !important;
+        color: #000 !important;
+        border: none !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        cursor: pointer !important;
+    }
+
+    /* Cards de clientes */
+    .clients-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .premium-client-card {
+        width: 100% !important;
+        padding: 16px !important;
+        background: linear-gradient(145deg, #1a1a1a 0%, #1f1f1f 100%) !important;
+        border: 1px solid rgba(255,255,255,0.05) !important;
+        border-radius: 16px !important;
+    }
+
+    .client-card-header {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .client-avatar {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        background: rgba(0,255,136,0.15) !important;
+        color: #00ff88 !important;
+    }
+
+    .client-info {
+        flex: 1 !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .client-info h3 {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: white !important;
+        margin: 0 0 4px 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .client-contact {
+        font-size: 12px !important;
+        color: rgba(255,255,255,0.6) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+    }
+
+    .client-whatsapp-btn {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        border-radius: 12px !important;
+        background: rgba(37,211,102,0.15) !important;
+        border: none !important;
+        color: #25D366 !important;
+        font-size: 18px !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .client-stats-mini {
+        display: flex !important;
+        margin-top: 12px !important;
+        padding-top: 12px !important;
+        border-top: 1px solid rgba(255,255,255,0.05) !important;
+    }
+
+    /* =========================================
+       TELA DE SERVIÇOS
+       ========================================= */
+    #screen-services.active {
+        padding: 16px !important;
+    }
+
+    .screen-header {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .screen-title {
+        font-size: 24px !important;
+        font-weight: 700 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .header-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    /* Grid de serviços */
+    .services-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .premium-long-card {
+        width: 100% !important;
+        padding: 16px !important;
+        background: linear-gradient(145deg, #1a1a1a 0%, #1f1f1f 100%) !important;
+        border: 1px solid rgba(255,255,255,0.05) !important;
+        border-radius: 16px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .long-card-icon-wrap {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: rgba(0,255,136,0.15) !important;
+    }
+
+    .long-card-icon {
+        font-size: 20px !important;
+        color: #00ff88 !important;
+    }
+
+    .long-card-info {
+        flex: 1 !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .long-card-title {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        color: white !important;
+        margin-bottom: 4px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .long-card-subtitle {
+        font-size: 12px !important;
+        color: rgba(255,255,255,0.5) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    .long-card-price {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #00ff88 !important;
+        white-space: nowrap !important;
+    }
+
+    .long-card-actions {
+        display: flex !important;
+        gap: 8px !important;
+        margin-left: 8px !important;
+    }
+
+    .icon-btn-sm {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        border-radius: 10px !important;
+        background: rgba(255,255,255,0.05) !important;
+        border: none !important;
+        color: rgba(255,255,255,0.7) !important;
+        font-size: 14px !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* =========================================
+       TELA DE PRODUTOS
+       ========================================= */
+    #screen-products.active {
+        padding: 16px !important;
+    }
+
+    .products-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .long-card-stock {
+        padding: 4px 10px !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        white-space: nowrap !important;
+    }
+
+    /* =========================================
+       TELA DE CAIXA
+       ========================================= */
+    #screen-cashier.active {
+        padding: 16px !important;
+    }
+
+    .cashier-header {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .cashier-header-actions {
+        display: flex !important;
+        gap: 8px !important;
+    }
+
+    .cashier-header-actions .btn {
+        flex: 1 !important;
+        padding: 12px !important;
+        font-size: 12px !important;
+        border-radius: 10px !important;
+    }
+
+    /* Cards de resumo */
+    .cashier-summary-cards {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .cashier-summary-card {
+        width: 100% !important;
+        padding: 20px 16px !important;
+        background: linear-gradient(145deg, #1a1a1a 0%, #1f1f1f 100%) !important;
+        border: 1px solid rgba(255,255,255,0.05) !important;
+        border-radius: 16px !important;
+    }
+
+    .cashier-summary-icon {
+        font-size: 24px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .cashier-summary-label {
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        color: rgba(255,255,255,0.5) !important;
+        margin-bottom: 8px !important;
+    }
+
+    .cashier-summary-value {
+        font-size: 28px !important;
+        font-weight: 700 !important;
+    }
+
+    .cashier-summary-details {
+        margin-top: 16px !important;
+        padding-top: 16px !important;
+        border-top: 1px solid rgba(255,255,255,0.05) !important;
+    }
+
+    .cashier-detail-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        font-size: 13px !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* Transações */
+    .transactions-section {
+        background: #1a1a1a !important;
+        border-radius: 16px !important;
+        padding: 16px !important;
+    }
+
+    .transactions-header {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .transactions-header h3 {
+        font-size: 16px !important;
+        font-weight: 600 !important;
+    }
+
+    .transactions-filters {
+        display: flex !important;
+        gap: 8px !important;
+    }
+
+    .transaction-filter-btn {
+        flex: 1 !important;
+        padding: 10px 12px !important;
+        font-size: 12px !important;
+        background: rgba(255,255,255,0.05) !important;
+        border: 1px solid transparent !important;
+        border-radius: 10px !important;
+        color: rgba(255,255,255,0.7) !important;
+        cursor: pointer !important;
+        text-align: center !important;
+    }
+
+    .transaction-filter-btn.active {
+        background: rgba(0,255,136,0.15) !important;
+        border-color: #00ff88 !important;
+        color: #00ff88 !important;
+    }
+
+    .transactions-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .transaction-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding: 14px !important;
+        background: rgba(255,255,255,0.03) !important;
+        border-radius: 12px !important;
+    }
+
+    .transaction-icon {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 18px !important;
+    }
+
+    .transaction-details {
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
+    .transaction-desc {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        color: white !important;
+        margin-bottom: 2px !important;
+    }
+
+    .transaction-meta {
+        font-size: 11px !important;
+        color: rgba(255,255,255,0.5) !important;
+    }
+
+    .transaction-value {
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        white-space: nowrap !important;
+    }
+
+    /* =========================================
+       TELA DE ESTATÍSTICAS
+       ========================================= */
+    #screen-stats.active {
+        padding: 16px !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .stats-mode-pill {
+        display: flex !important;
+        width: 100% !important;
+        margin-top: 12px !important;
+        background: #1e1e1e !important;
+        border-radius: 12px !important;
+        padding: 4px !important;
+    }
+
+    .stats-mode-btn {
+        flex: 1 !important;
+        padding: 12px 16px !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        border: none !important;
+        background: transparent !important;
+        color: rgba(255,255,255,0.6) !important;
+        border-radius: 10px !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+
+    .stats-mode-btn.active {
+        background: #00ff88 !important;
+        color: #000 !important;
+    }
+
+    /* Barra de período */
+    .stats-period-bar-premium {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        margin: 20px 0 !important;
+        padding: 16px !important;
+        background: #1a1a1a !important;
+        border-radius: 12px !important;
+    }
+
+    .stats-period-info {
+        text-align: center !important;
+    }
+
+    .stats-period-nav {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+
+    /* KPIs */
+    .stats-kpi-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .kpi-card {
+        padding: 16px !important;
+        background: linear-gradient(145deg, #1a1a1a 0%, #1f1f1f 100%) !important;
+        border: 1px solid rgba(255,255,255,0.05) !important;
+        border-radius: 16px !important;
+        text-align: center !important;
+    }
+
+    .kpi-icon {
+        font-size: 20px !important;
+        margin-bottom: 8px !important;
+        opacity: 0.7 !important;
+    }
+
+    .kpi-value {
+        font-size: 24px !important;
+        font-weight: 700 !important;
+        color: white !important;
+        margin-bottom: 4px !important;
+    }
+
+    .kpi-label {
+        font-size: 10px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        color: rgba(255,255,255,0.5) !important;
+    }
+
+    /* Gráficos */
+    .stats-charts-grid,
+    .stats-charts-row,
+    .stats-bottom-row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    .stats-chart-card {
+        width: 100% !important;
+        padding: 16px !important;
+        background: #1a1a1a !important;
+        border-radius: 16px !important;
+    }
+
+    .chart-header {
+        margin-bottom: 16px !important;
+    }
+
+    .chart-title {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+    .chart-body-main {
+        min-height: 200px !important;
+    }
+
+    /* Financial KPIs */
+    .financial-kpi-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* =========================================
+       TELA DE CONFIGURAÇÕES
+       ========================================= */
+    #screen-settings.active {
+        padding: 16px !important;
+    }
+
+    .settings-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .settings-section {
+        width: 100% !important;
+    }
+
+    .settings-card {
+        padding: 16px !important;
+        background: #1a1a1a !important;
+        border-radius: 16px !important;
+    }
+
+    .settings-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .language-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .professionals-config-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* =========================================
+       MODAIS
+       ========================================= */
+    .modal-overlay {
+        padding: 0 !important;
+        align-items: flex-end !important;
+    }
+
+    .modal-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 92vh !important;
+        max-height: 92dvh !important;
+        margin: 0 !important;
+        border-radius: 20px 20px 0 0 !important;
+    }
+
+    .modal-header {
+        padding: 20px 16px 16px !important;
+        position: sticky !important;
+        top: 0 !important;
+        background: #1a1a1a !important;
+        z-index: 10 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    }
+
+    .modal-header::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 8px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 40px !important;
+        height: 4px !important;
+        background: rgba(255,255,255,0.2) !important;
+        border-radius: 2px !important;
+    }
+
+    .modal-title {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+    }
+
+    .modal-body {
+        padding: 16px !important;
+        max-height: calc(92vh - 140px) !important;
+        max-height: calc(92dvh - 140px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .modal-footer {
+        padding: 16px !important;
+        position: sticky !important;
+        bottom: 0 !important;
+        background: #1a1a1a !important;
+        border-top: 1px solid rgba(255,255,255,0.1) !important;
+        display: flex !important;
+        gap: 12px !important;
+    }
+
+    .modal-footer .btn,
+    .modal-footer .premium-btn {
+        flex: 1 !important;
+        padding: 14px !important;
+        font-size: 14px !important;
+    }
+
+    /* Formulários */
+    .form-row {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .form-group {
+        width: 100% !important;
+    }
+
+    .form-label {
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        margin-bottom: 6px !important;
+        display: block !important;
+    }
+
+    .premium-input,
+    .premium-select,
+    .premium-textarea {
+        width: 100% !important;
+        padding: 14px !important;
+        font-size: 16px !important;
+        background: #252525 !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        border-radius: 12px !important;
+        color: white !important;
+    }
+
+    .premium-textarea {
+        min-height: 100px !important;
+        resize: vertical !important;
+    }
+
+    /* Time slots */
+    .time-slots-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    .time-slot {
+        padding: 10px 8px !important;
+        font-size: 12px !important;
+        text-align: center !important;
+        background: rgba(255,255,255,0.05) !important;
+        border: 1px solid transparent !important;
+        border-radius: 10px !important;
+        color: white !important;
+        cursor: pointer !important;
+    }
+
+    .time-slot.selected {
+        background: rgba(0,255,136,0.15) !important;
+        border-color: #00ff88 !important;
+        color: #00ff88 !important;
+    }
+
+    /* =========================================
+       BOTÕES FLUTUANTES
+       ========================================= */
+    .btn-add-float,
+    .fab {
+        position: fixed !important;
+        bottom: 90px !important;
+        right: 16px !important;
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 16px !important;
+        z-index: 1000 !important;
+    }
+
+    /* =========================================
+       TOASTS
+       ========================================= */
+    .toast-container {
+        position: fixed !important;
+        bottom: 90px !important;
+        left: 16px !important;
+        right: 16px !important;
+        z-index: 10000 !important;
+    }
+
+    .toast {
+        width: 100% !important;
+    }
+
+    /* =========================================
+       ESTADOS VAZIOS
+       ========================================= */
+    .empty-state-premium,
+    .premium-empty {
+        padding: 48px 24px !important;
+        text-align: center !important;
+    }
+
+    .empty-icon i {
+        font-size: 48px !important;
+    }
+
+    .empty-title {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        margin: 16px 0 8px !important;
+    }
+
+    .empty-text {
+        font-size: 13px !important;
+        color: rgba(255,255,255,0.5) !important;
+    }
+
+    /* =========================================
+       UTILITÁRIOS
+       ========================================= */
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .show-mobile {
+        display: block !important;
+    }
+
+    .hide-desktop {
+        display: block !important;
+    }
+
+    #screen-calendar.active .mobile-mini-calendar.hide-desktop {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Desktop: esconder elementos mobile-only */
+.hide-desktop {
+    display: none;
+}
+
+/* =============================================
+   TELAS MUITO PEQUENAS (< 380px)
+   ============================================= */
+@media screen and (max-width: 380px) {
+    .nav-item {
+        min-width: 50px !important;
+        padding: 6px 2px !important;
+    }
+
+    .nav-item span {
+        font-size: 9px !important;
+    }
+
+    .clock-time {
+        font-size: 40px !important;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .stats-kpi-grid,
+    .financial-kpi-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .time-slots-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* =============================================
+   MODO PAISAGEM
+   ============================================= */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .sidebar {
+        height: 56px !important;
+    }
+
+    .nav-item {
+        flex-direction: row !important;
+        gap: 6px !important;
+    }
+
+    .nav-item span {
+        font-size: 11px !important;
+    }
+
+    .main-content {
+        min-height: calc(100vh - 56px) !important;
+        min-height: calc(100dvh - 56px) !important;
+    }
+
+    .screen {
+        padding-bottom: 70px !important;
+    }
+}
+
